@@ -1,0 +1,42 @@
+.history-item {
+  list-style-type: none;
+  display: flex;
+  font-family: 'Roboto';
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 20px;
+  margin-right: 12px;
+  margin-left: 10px;
+}
+
+.website {
+  display: flex;
+  align-items: center;
+}
+
+.time-container {
+  margin-right: 20px;
+}
+
+.time {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.title {
+  margin-right: 12px;
+}
+
+.domain-url {
+  color: #64748b;
+  font-size: 13px;
+}

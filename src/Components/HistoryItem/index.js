@@ -1,11 +1,11 @@
 import './index.css'
 
 const HistoryItem = props => {
-  const {historyList, deleteFunction} = props
+  const {historyList, deleteFunction, browserList} = props
   const {id, timeAccessed, logoUrl, title, domainUrl} = historyList
 
   const deleteItem = () => {
-    deleteFunction(id, historyList)
+    deleteFunction(id, browserList)
   }
 
   return (
@@ -15,17 +15,18 @@ const HistoryItem = props => {
           <p className="time">{timeAccessed}</p>
         </div>
         <div className="website">
-          <img src={logoUrl} className="logo-image" alt="logo" />
+          <img src={logoUrl} className="logo-image" alt="domain logo" />
           <p className="title">{title}</p>
           <p className="domain-url">{domainUrl}</p>
         </div>
       </div>
       <div className="delete-icon-container">
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
-          alt="delete"
-          onClick={deleteItem}
-        />
+        <button type="button" className="button" onClick={deleteItem}>
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+            alt="delete"
+          />
+        </button>
       </div>
     </li>
   )

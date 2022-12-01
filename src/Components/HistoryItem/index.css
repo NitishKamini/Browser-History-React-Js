@@ -40,3 +40,8 @@
   color: #64748b;
   font-size: 13px;
 }
+
+.button {
+  background-color: #ffffff;
+  border: 0;
+}

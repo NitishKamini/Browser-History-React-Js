@@ -11,17 +11,14 @@ class BrowserHistory extends Component {
     this.setState({searchInput: event.target.value})
   }
 
-  deleteHistoryItem = (id, historyList) => {
-    const {initialHistoryList1} = this.state
-    const updatedList = initialHistoryList1.filter(
-      eachHistory => eachHistory.id !== id,
-    )
-    this.setState({initialHistoryList1: updatedList})
+  deleteHistoryItem = (id, broswerList) => {
+    const newList = broswerList.filter(eachItem => eachItem.id !== id)
+    const newObject = {historyDetailsList: newList}
+    this.setState({initialHistoryList1: newObject})
   }
 
   render() {
     const {searchInput, initialHistoryList1} = this.state
-    console.log(initialHistoryList1.historyDetailsList)
     const filteredList = initialHistoryList1.historyDetailsList.filter(
       eachHistory =>
         eachHistory.title.toLowerCase().includes(searchInput.toLowerCase()),
@@ -48,7 +45,7 @@ class BrowserHistory extends Component {
               <input
                 type="search"
                 className="input-search"
-                placeholder="seach history"
+                placeholder="search history"
                 onChange={this.onSearchInputChange}
                 value={searchInput}
               />
@@ -56,12 +53,18 @@ class BrowserHistory extends Component {
           </div>
         </div>
         <div className="bottom-section">
+          {filteredList.length === 0 ? (
+            <p className="no-history">There is no history to show</p>
+          ) : (
+            ''
+          )}
           <ul>
             {filteredList.map(eachHistory => (
               <HistoryItem
                 historyList={eachHistory}
                 key={eachHistory.id}
                 deleteFunction={this.deleteHistoryItem}
+                browserList={initialHistoryList1.historyDetailsList}
               />
             ))}
           </ul>
